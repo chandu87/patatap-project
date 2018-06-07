@@ -8,21 +8,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="circles.css">
     <script type="text/javascript" src="paper-full.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.js"></script>
     <script type="text/paperscript" canvas="canvas">
         // Create a Paper.js Path to draw a line into it:
+        var circlesArray= [];
+        var keyData = {
+        a : {
+            color: "blue",
+            sound : new Howl({src: ['sounds/clay.mp3']})
+        },
+        s : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/bubbles.mp3']})
+        }
+        };
+          
         function onKeyDown(event) {
             // When a key is pressed, set the content of the text item:
             var maxPoint = new Point(view.size.width, view.size.height);
             var randomPoint = Point.random();
-            var point = maxPoint * randomPoint;
-            new Path.Circle(point, 20).fillColor = 'black';        
-
+            var point = maxPoint * randomPoint; 
+            var circleRandom = new Path.Circle(point, 200);
+            circleRandom.fillColor = keyData[event.key].color;
+            circlesArray.push(circleRandom);
+            keyData[event.key].sound.play();
+            
         }
-        
+
+        function onFrame(event){
+            for(var i = 0; i < circlesArray.length; i++){
+                circlesArray[i].fillColor.hue += 1;
+                circlesArray[i].scale(0.93);
+
+            }  
+        }
     </script>
 </head>
 
-<body style="background:yellow">
+<body style="background:blue">
     <canvas id="canvas" resize></canvas>
 
 </body>
