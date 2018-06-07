@@ -20,9 +20,101 @@
         s : {
             color : "brown",
             sound : new Howl({src: ['sounds/bubbles.mp3']})
+        },
+        d :{
+            color : "green",
+            sound : new Howl({src : ['sounds/confetti.mp3']})
+        },
+        f : {
+            color : "yellow",
+            sound : new Howl({src: ['sounds/corona.mp3']})
+        },
+        g :{
+            color : "pink",
+            sound : new Howl({src : ['sounds/dotted-spiral.mp3']})
+        },
+        h : {
+            color : "red",
+            sound : new Howl({src: ['sounds/flash-1.mp3']})
+        },
+        j :{
+            color : "blue",
+            sound : new Howl({src : ['sounds/flash-2.mp3']})
+        },
+        k : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/flash-3.mp3']})
+        },
+        l :{
+            color : "orange",
+            sound : new Howl({src : ['sounds/glimmer.mp3']})
+        },
+        z : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/moon.mp3']})
+        },x :{
+            color : "red",
+            sound : new Howl({src : ['sounds/pinwheel.mp3']})
+        },
+        c : {
+            color : "pink",
+            sound : new Howl({src: ['sounds/piston-1.mp3']})
+        },v :{
+            color : "green",
+            sound : new Howl({src : ['sounds/piston-2.mp3']})
+        },
+        b : {
+            color : "orange",
+            sound : new Howl({src: ['sounds/piston-3.mp3']})
+        },n :{
+            color : "green",
+            sound : new Howl({src : ['sounds/prism-1.mp3']})
+        },
+        m : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/prism-2.mp3']})
+        },q :{
+            color : "yellow",
+            sound : new Howl({src : ['sounds/prism-3.mp3']})
+        },
+        w : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/splits.mp3']})
+        },e :{
+            color : "green",
+            sound : new Howl({src : ['sounds/squiggle.mp3']})
+        },
+        r : {
+            color : "pink",
+            sound : new Howl({src: ['sounds/strike.mp3']})
+        },t :{
+            color : "green",
+            sound : new Howl({src : ['sounds/suspension.mp3']})
+        },
+        y : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/timer.mp3']})
+        },u :{
+            color : "red",
+            sound : new Howl({src : ['sounds/ufo.mp3']})
+        },
+        i : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/veil.mp3']})
+        },o :{
+            color : "green",
+            sound : new Howl({src : ['sounds/wipe.mp3']})
         }
+        ,
+        p : {
+            color : "brown",
+            sound : new Howl({src: ['sounds/zig-zag.mp3']})
+        },å :{
+            color : "green",
+            sound : new Howl({src : ['sounds/confetti.mp3']})
+        }
+
         };
-          
         function onKeyDown(event) {
             // When a key is pressed, set the content of the text item:
             var maxPoint = new Point(view.size.width, view.size.height);
@@ -31,15 +123,13 @@
             var circleRandom = new Path.Circle(point, 200);
             circleRandom.fillColor = keyData[event.key].color;
             circlesArray.push(circleRandom);
-            keyData[event.key].sound.play();
-            
+            keyData[event.key].sound.play();  
         }
 
         function onFrame(event){
             for(var i = 0; i < circlesArray.length; i++){
                 circlesArray[i].fillColor.hue += 1;
                 circlesArray[i].scale(0.93);
-
             }  
         }
     </script>
